@@ -592,6 +592,39 @@
                 document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
             });
         }
+
+        // Card Scroll Layer Stacking Scale Enhancer
+        function handleCardScrollStacking() {
+            const isMobile = window.innerWidth <= 768;
+            const containers = document.querySelectorAll('.layer-stack-wrapper, .steps-grid, .feature-grid, .testimonial-grid');
+            
+            containers.forEach(container => {
+                const cards = container.querySelectorAll('.layer-card, .step-card, .feature-card, .testimonial-card');
+                cards.forEach((card, index) => {
+                    const rect = card.getBoundingClientRect();
+                    const targetTop = isMobile ? (85 + index * 20) : (130 + index * 25);
+                    
+                    if (rect.top <= targetTop + 10) {
+                        const nextCard = cards[index + 1];
+                        if (nextCard) {
+                            const nextRect = nextCard.getBoundingClientRect();
+                            const dist = nextRect.top - targetTop;
+                            if (dist < 220 && dist > 0) {
+                                const factor = dist / 220;
+                                const scale = 0.96 + (0.04 * factor);
+                                card.style.transform = `scale(${scale})`;
+                            }
+                        }
+                    } else {
+                        card.style.transform = 'scale(1)';
+                    }
+                });
+            });
+        }
+
+        window.addEventListener('scroll', handleCardScrollStacking, { passive: true });
+        window.addEventListener('resize', handleCardScrollStacking);
+        handleCardScrollStacking();
     </script>
 </body>
 </html>
