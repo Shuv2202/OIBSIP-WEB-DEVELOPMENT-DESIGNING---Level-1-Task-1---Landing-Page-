@@ -1,5 +1,5 @@
 /* ==========================================================================
-   QUICKBITE ULTRA-ATTRACTIVE DESIGN SYSTEM & STYLESHEET
+   QUICKBITE BRAND DESIGN SYSTEM & LAYER SLIDING STYLESHEET
    ========================================================================== */
 
 :root {
@@ -475,7 +475,7 @@ nav a:hover::after, nav a.active::after {
     background: var(--border-light);
 }
 
-/* HERO VISUAL & ENHANCED CARDS */
+/* HERO VISUAL & CARDS */
 .hero-visual {
     position: relative;
 }
@@ -624,9 +624,25 @@ nav a:hover::after, nav a.active::after {
     right: -28px;
 }
 
-/* MENU SECTION & ENHANCED CATEGORIES */
+/* ==========================================================================
+   LAYER SLIDING OVERLAPPING MENU LAYOUT (STICKY CARDS STACK)
+   ========================================================================== */
+
 .menu-section {
-    padding: 100px 0;
+    padding: 100px 0 120px;
+    position: relative;
+}
+
+.menu-tabs-sticky-wrapper {
+    position: sticky;
+    top: 85px;
+    z-index: 80;
+    padding: 16px 0;
+    background: rgba(244, 247, 251, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .menu-tabs {
@@ -634,7 +650,6 @@ nav a:hover::after, nav a.active::after {
     justify-content: center;
     gap: 16px;
     flex-wrap: wrap;
-    margin-bottom: 56px;
 }
 
 .tab-btn {
@@ -659,29 +674,103 @@ nav a:hover::after, nav a.active::after {
     transform: translateY(-3px);
 }
 
-/* Enhanced Dish Grid Cards */
-.dish-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 36px;
-}
-
-.dish-card {
-    background: var(--surface-card);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 2px solid var(--border-light);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    position: relative;
+/* Stack Wrapper */
+.layer-stack-wrapper {
     display: flex;
     flex-direction: column;
+    position: relative;
+    margin-top: 20px;
 }
 
-.dish-card:hover {
+.layer-card {
+    position: sticky;
+    top: calc(160px + (var(--layer-index) * 25px));
+    z-index: calc(10 + var(--layer-index));
+    background: var(--surface-card);
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--border-light);
+    box-shadow: 0 -10px 40px rgba(15, 23, 42, 0.08), 0 25px 60px rgba(15, 23, 42, 0.12);
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    margin-bottom: 60px;
+}
+
+.layer-card:hover {
     transform: translateY(-10px) scale(1.01);
-    box-shadow: 0 22px 50px rgba(15, 23, 42, 0.12), 0 0 25px rgba(255, 59, 36, 0.15);
+    box-shadow: 0 -15px 50px rgba(255, 59, 36, 0.25), 0 30px 70px rgba(15, 23, 42, 0.2);
     border-color: rgba(255, 59, 36, 0.4);
+}
+
+.layer-card-inner {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 40px;
+    align-items: center;
+    padding: 36px;
+    position: relative;
+}
+
+.layer-number {
+    position: absolute;
+    top: 24px;
+    right: 36px;
+    font-family: var(--font-heading);
+    font-size: 56px;
+    font-weight: 900;
+    color: rgba(15, 23, 42, 0.06);
+    line-height: 1;
+}
+
+.layer-image {
+    width: 100%;
+    height: 310px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: relative;
+}
+
+.layer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.layer-card:hover .layer-image img {
+    transform: scale(1.08);
+}
+
+.layer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.layer-content h3 {
+    font-size: 28px;
+    letter-spacing: -0.5px;
+}
+
+.layer-content p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.65;
+}
+
+.layer-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    margin-top: 12px;
+    border-top: 1.5px solid var(--border-light);
+}
+
+.layer-footer .price {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--primary);
 }
 
 .card-badge {
@@ -706,36 +795,10 @@ nav a:hover::after, nav a.active::after {
     background: linear-gradient(135deg, #059669, #10b981);
 }
 
-.card-image {
-    width: 100%;
-    height: 260px;
-    overflow: hidden;
-    position: relative;
-}
-
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.dish-card:hover .card-image img {
-    transform: scale(1.1);
-}
-
-.card-body {
-    padding: 28px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
 .card-meta {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
+    gap: 16px;
 }
 
 .category-pill {
@@ -750,34 +813,6 @@ nav a:hover::after, nav a.active::after {
     font-size: 14px;
     font-weight: 800;
     color: #f59e0b;
-}
-
-.card-body h3 {
-    font-size: 21px;
-    margin-bottom: 10px;
-}
-
-.card-body p {
-    font-size: 15px;
-    color: var(--text-muted);
-    margin-bottom: 24px;
-    line-height: 1.55;
-    flex: 1;
-}
-
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 18px;
-    border-top: 1px solid var(--border-light);
-}
-
-.card-footer .price {
-    font-family: var(--font-heading);
-    font-size: 25px;
-    font-weight: 900;
-    color: var(--text-heading);
 }
 
 /* HOW IT WORKS */
@@ -1271,6 +1306,14 @@ footer {
 
     .hero-stats {
         justify-content: center;
+    }
+
+    .layer-card-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .layer-image {
+        height: 250px;
     }
 
     .steps-grid, .feature-grid {

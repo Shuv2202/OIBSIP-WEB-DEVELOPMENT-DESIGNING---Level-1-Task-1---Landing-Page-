@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="QuickBite - Premium fresh food delivered fast to your doorstep. Explore gourmet burgers, artisanal pizzas, and healthy bowls.">
+    <meta name="description" content="QuickBite - Premium fresh food delivered fast to your doorstep. Explore gourmet burgers, artisanal pizzas, and healthy bowls with stacked layer navigation.">
     <title>QuickBite | Fresh Food Delivered Fast</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,7 +27,7 @@
 
             <nav aria-label="Main navigation">
                 <a href="#home" class="active">Home</a>
-                <a href="#menu">Menu</a>
+                <a href="#menu">Menu Layers</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#features">Features</a>
                 <a href="#testimonials">Reviews</a>
@@ -133,87 +133,123 @@
             </div>
         </section>
 
-        <!-- Popular Menu Showcase -->
+        <!-- Layer Sliding Menu Showcase -->
         <section class="menu-section" id="menu">
             <div class="container">
                 <div class="section-heading text-center">
-                    <span class="section-badge">EXPLORE DISHES</span>
+                    <span class="section-badge">STACKED MENU LAYERS</span>
                     <h2>Popular Culinary Creations</h2>
-                    <p>Hand-crafted meals prepared fresh upon order by our culinary masters.</p>
+                    <p>Scroll down to experience our stacked layer sliding menu interface.</p>
                 </div>
 
-                <!-- Filter Categories -->
-                <div class="menu-tabs" id="menuTabs">
-                    <button class="tab-btn active" data-category="all">✨ All Dishes</button>
-                    <button class="tab-btn" data-category="burgers">🍔 Burgers</button>
-                    <button class="tab-btn" data-category="pizza">🍕 Artisanal Pizza</button>
-                    <button class="tab-btn" data-category="asian">🥢 Asian Bowls</button>
+                <!-- Filter Categories Sticky Bar -->
+                <div class="menu-tabs-sticky-wrapper">
+                    <div class="menu-tabs" id="menuTabs">
+                        <button class="tab-btn active" data-category="all">✨ All Layers</button>
+                        <button class="tab-btn" data-category="burgers">🍔 Burgers</button>
+                        <button class="tab-btn" data-category="pizza">🍕 Artisanal Pizza</button>
+                        <button class="tab-btn" data-category="asian">🥢 Asian Bowls</button>
+                    </div>
                 </div>
 
-                <!-- Dish Cards Grid -->
-                <div class="dish-grid" id="dishGrid">
-                    <!-- Dish 1 -->
-                    <article class="dish-card" data-category="burgers">
-                        <div class="card-badge">Bestseller</div>
-                        <div class="card-image">
-                            <img src="images/burger.jpg" alt="Classic Cheeseburger">
-                        </div>
-                        <div class="card-body">
-                            <div class="card-meta">
-                                <span class="category-pill">Burger</span>
-                                <span class="rating-tag">★ 4.9</span>
+                <!-- Layer Sliding Overlapping Dish Stack -->
+                <div class="layer-stack-wrapper" id="layerStack">
+                    <!-- Layer 1 -->
+                    <article class="layer-card" data-category="burgers" style="--layer-index: 1;">
+                        <div class="layer-number">01</div>
+                        <div class="layer-card-inner">
+                            <div class="layer-image">
+                                <img src="images/burger.jpg" alt="Smokey BBQ Angus Burger">
+                                <div class="card-badge">Bestseller</div>
                             </div>
-                            <h3>Smokey BBQ Angus Burger</h3>
-                            <p>Double Angus beef, smoked cheddar, crispy bacon, house glaze.</p>
-                            <div class="card-footer">
-                                <span class="price">$14.99</span>
-                                <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="1" data-name="Smokey BBQ Angus Burger" data-price="14.99" data-img="images/burger.jpg">
-                                    + Add to Cart
-                                </button>
+                            <div class="layer-content">
+                                <div class="card-meta">
+                                    <span class="category-pill">Burger Layer</span>
+                                    <span class="rating-tag">★ 4.9</span>
+                                </div>
+                                <h3>Smokey BBQ Angus Burger</h3>
+                                <p>Double Angus beef patty, smoked cheddar, crispy bacon, house bbq glaze, and truffle aioli served on a toasted artisanal brioche bun.</p>
+                                <div class="layer-footer">
+                                    <span class="price">$14.99</span>
+                                    <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="1" data-name="Smokey BBQ Angus Burger" data-price="14.99" data-img="images/burger.jpg">
+                                        + Add to Cart
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Dish 2 -->
-                    <article class="dish-card" data-category="pizza">
-                        <div class="card-badge hot-badge">Hot & Crispy</div>
-                        <div class="card-image">
-                            <img src="images/pizza.jpg" alt="Artisanal Pepperoni Pizza">
-                        </div>
-                        <div class="card-body">
-                            <div class="card-meta">
-                                <span class="category-pill">Pizza</span>
-                                <span class="rating-tag">★ 4.8</span>
+                    <!-- Layer 2 -->
+                    <article class="layer-card" data-category="pizza" style="--layer-index: 2;">
+                        <div class="layer-number">02</div>
+                        <div class="layer-card-inner">
+                            <div class="layer-image">
+                                <img src="images/pizza.jpg" alt="Woodfired Pepperoni Supreme">
+                                <div class="card-badge hot-badge">Hot & Crispy</div>
                             </div>
-                            <h3>Woodfired Pepperoni Supreme</h3>
-                            <p>Fresh mozzarella, spicy Italian pepperoni, basil & hot honey drip.</p>
-                            <div class="card-footer">
-                                <span class="price">$18.50</span>
-                                <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="2" data-name="Woodfired Pepperoni Supreme" data-price="18.50" data-img="images/pizza.jpg">
-                                    + Add to Cart
-                                </button>
+                            <div class="layer-content">
+                                <div class="card-meta">
+                                    <span class="category-pill">Pizza Layer</span>
+                                    <span class="rating-tag">★ 4.8</span>
+                                </div>
+                                <h3>Woodfired Pepperoni Supreme</h3>
+                                <p>Hand-tossed sourdough crust topped with San Marzano tomato sauce, fresh mozzarella, spicy pepperoni slices, fresh basil & hot honey drizzle.</p>
+                                <div class="layer-footer">
+                                    <span class="price">$18.50</span>
+                                    <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="2" data-name="Woodfired Pepperoni Supreme" data-price="18.50" data-img="images/pizza.jpg">
+                                        + Add to Cart
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Dish 3 -->
-                    <article class="dish-card" data-category="asian">
-                        <div class="card-badge healthy-badge">Chef's Choice</div>
-                        <div class="card-image">
-                            <img src="images/asian_bowl.jpg" alt="Salmon Poke Bowl">
-                        </div>
-                        <div class="card-body">
-                            <div class="card-meta">
-                                <span class="category-pill">Asian Bowl</span>
-                                <span class="rating-tag">★ 4.95</span>
+                    <!-- Layer 3 -->
+                    <article class="layer-card" data-category="asian" style="--layer-index: 3;">
+                        <div class="layer-number">03</div>
+                        <div class="layer-card-inner">
+                            <div class="layer-image">
+                                <img src="images/asian_bowl.jpg" alt="Truffle Salmon Poke Bowl">
+                                <div class="card-badge healthy-badge">Chef's Choice</div>
                             </div>
-                            <h3>Truffle Salmon Poke Bowl</h3>
-                            <p>Wild Atlantic salmon, avocado, edamame, sesame sticky rice & ponzu.</p>
-                            <div class="card-footer">
-                                <span class="price">$16.75</span>
-                                <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="3" data-name="Truffle Salmon Poke Bowl" data-price="16.75" data-img="images/asian_bowl.jpg">
-                                    + Add to Cart
-                                </button>
+                            <div class="layer-content">
+                                <div class="card-meta">
+                                    <span class="category-pill">Asian Bowl Layer</span>
+                                    <span class="rating-tag">★ 4.95</span>
+                                </div>
+                                <h3>Truffle Salmon Poke Bowl</h3>
+                                <p>Wild Atlantic salmon cubes tossed in sesame ponzu glaze, layered over sticky sushi rice, edamame, sliced avocado, cucumber, and spicy mayo.</p>
+                                <div class="layer-footer">
+                                    <span class="price">$16.75</span>
+                                    <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="3" data-name="Truffle Salmon Poke Bowl" data-price="16.75" data-img="images/asian_bowl.jpg">
+                                        + Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Layer 4 -->
+                    <article class="layer-card" data-category="burgers" style="--layer-index: 4;">
+                        <div class="layer-number">04</div>
+                        <div class="layer-card-inner">
+                            <div class="layer-image">
+                                <img src="images/burger.jpg" alt="Truffle Swiss Mushroom Burger">
+                                <div class="card-badge">Gourmet</div>
+                            </div>
+                            <div class="layer-content">
+                                <div class="card-meta">
+                                    <span class="category-pill">Burger Layer</span>
+                                    <span class="rating-tag">★ 4.9</span>
+                                </div>
+                                <h3>Truffle Swiss Mushroom Burger</h3>
+                                <p>Premium Angus beef patty topped with sautéed wild mushrooms, melted Swiss cheese, caramelized onions, and black truffle butter glaze.</p>
+                                <div class="layer-footer">
+                                    <span class="price">$16.99</span>
+                                    <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="4" data-name="Truffle Swiss Mushroom Burger" data-price="16.99" data-img="images/burger.jpg">
+                                        + Add to Cart
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </article>
@@ -235,7 +271,7 @@
                         <div class="step-number">01</div>
                         <div class="step-icon">📱</div>
                         <h3>Choose Your Meal</h3>
-                        <p>Browse hundred of curated dishes from top local restaurants and artisan kitchens.</p>
+                        <p>Browse hundreds of curated dishes from top local restaurants and artisan kitchens.</p>
                     </div>
 
                     <div class="step-card">
@@ -297,7 +333,7 @@
                 <div class="testimonial-grid">
                     <article class="testimonial-card">
                         <div class="stars">★★★★★</div>
-                        <p>“QuickBite completely changed how I order dinner. The salmon poke bowl was restuarant quality and arrived in just 16 minutes!”</p>
+                        <p>“QuickBite completely changed how I order dinner. The stacked menu layout makes ordering fun, and the salmon poke bowl arrived in 16 mins!”</p>
                         <div class="user-info">
                             <div class="avatar">RS</div>
                             <div>
@@ -309,7 +345,7 @@
 
                     <article class="testimonial-card">
                         <div class="stars">★★★★★</div>
-                        <p>“Sleek, incredibly fast, and the pepperoni pizza hot honey combination is unbeatable. Best delivery app in the city hands down!”</p>
+                        <p>“Sleek, incredibly fast, and the layer sliding interface is so satisfying to scroll. Best delivery app in the city hands down!”</p>
                         <div class="user-info">
                             <div class="avatar">PS</div>
                             <div>
@@ -520,7 +556,7 @@
 
         // Category Tab Filter
         const tabBtns = document.querySelectorAll('.tab-btn');
-        const dishCards = document.querySelectorAll('.dish-card');
+        const layerCards = document.querySelectorAll('.layer-card');
 
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -528,10 +564,9 @@
                 btn.classList.add('active');
 
                 const cat = btn.getAttribute('data-category');
-                dishCards.forEach(card => {
+                layerCards.forEach(card => {
                     if (cat === 'all' || card.getAttribute('data-category') === cat) {
                         card.style.display = 'block';
-                        card.style.animation = 'fadeInUp 0.4s ease forwards';
                     } else {
                         card.style.display = 'none';
                     }
