@@ -3,174 +3,560 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="QuickBite - Fresh food delivered fast to your doorstep.">
-    <title>QuickBite - Fresh Food Delivered Fast</title>
+    <meta name="description" content="QuickBite - Premium fresh food delivered fast to your doorstep. Explore gourmet burgers, artisanal pizzas, and healthy bowls.">
+    <title>QuickBite | Fresh Food Delivered Fast</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="navbar">
+    <!-- Ambient Glow Backdrops -->
+    <div class="ambient-glow glow-1" aria-hidden="true"></div>
+    <div class="ambient-glow glow-2" aria-hidden="true"></div>
+
+    <!-- Header Navigation -->
+    <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="#home" class="logo" aria-label="QuickBite home">Quick<span>Bite</span></a>
+            <a href="#home" class="logo" aria-label="QuickBite home">
+                <span class="logo-icon">⚡</span>Quick<span class="highlight">Bite</span>
+            </a>
 
             <nav aria-label="Main navigation">
-                <a href="#home">Home</a>
+                <a href="#home" class="active">Home</a>
+                <a href="#menu">Menu</a>
+                <a href="#how-it-works">How It Works</a>
                 <a href="#features">Features</a>
-                <a href="#about">About</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#contact">Contact</a>
+                <a href="#testimonials">Reviews</a>
             </nav>
+
+            <div class="nav-actions">
+                <button class="cart-trigger" id="cartToggleBtn" aria-label="View shopping cart">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-text">Cart</span>
+                    <span class="cart-badge" id="cartCountBadge">0</span>
+                </button>
+            </div>
         </div>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="hero" id="home">
             <div class="container hero-container">
                 <div class="hero-content">
-                    <p class="tagline">FRESH • FAST • DELICIOUS</p>
-                    <h1>Your Favorite Food, Delivered Fast.</h1>
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span> ⚡ Average Delivery: <strong>18 Mins</strong>
+                    </div>
+                    <h1>Taste Perfection <br><span class="text-gradient">Delivered To Your Door.</span></h1>
                     <p class="hero-description">
-                        Discover delicious meals from your favorite restaurants and get them delivered directly to your doorstep.
+                        Satisfy your cravings with handcrafted gourmet meals from top rated local chefs. Fresh ingredients, blazing fast delivery, and zero hassle.
                     </p>
-                    <a href="#features" class="btn">Explore Now</a>
+
+                    <!-- Location / Search Input Bar -->
+                    <div class="hero-search-box">
+                        <div class="search-input-wrapper">
+                            <span class="search-icon">📍</span>
+                            <input type="text" id="heroLocationInput" placeholder="Enter your delivery address..." value="742 Evergreen Terrace">
+                        </div>
+                        <button class="btn btn-primary btn-glow" id="findFoodBtn">
+                            Find Food
+                        </button>
+                    </div>
+
+                    <!-- Hero Stats Bar -->
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">4.9 ★</span>
+                            <span class="stat-label">12k+ Reviews</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Partner Chefs</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">0$</span>
+                            <span class="stat-label">Free First Delivery</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="hero-card">
-                    <div class="food-icon" aria-hidden="true">
-                        <svg viewBox="0 0 64 64" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 44C8 41.7909 9.79086 40 12 40H52C54.2091 40 56 41.7909 56 44V46C56 47.1046 55.1046 48 54 48H10C8.89543 48 8 47.1046 8 46V44Z" fill="var(--primary)"/>
-                            <path d="M12 36C12 24.9543 20.9543 16 32 16C43.0457 16 52 24.9543 52 36H12Z" fill="var(--primary-dark)" opacity="0.85"/>
-                            <circle cx="32" cy="11" r="3" fill="var(--primary)"/>
-                            <path d="M16 44H48" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
+                <!-- Hero Interactive Dish Card -->
+                <div class="hero-visual">
+                    <div class="hero-card-glow"></div>
+                    <div class="hero-dish-card floating-animation">
+                        <div class="dish-tag">🔥 Trending Dish</div>
+                        <div class="dish-image-wrapper">
+                            <img src="images/burger.jpg" alt="Smokey BBQ Cheeseburger" class="dish-img">
+                        </div>
+                        <div class="hero-card-info">
+                            <div class="dish-header">
+                                <h3>Smokey BBQ Angus Burger</h3>
+                                <span class="dish-price">$14.99</span>
+                            </div>
+                            <p class="dish-desc">Double Angus beef patty, smoked cheddar, crispy bacon, and truffle aioli on brioche.</p>
+                            <div class="hero-card-action">
+                                <span class="rating">★★★★★ (4.9)</span>
+                                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="1" data-name="Smokey BBQ Angus Burger" data-price="14.99" data-img="images/burger.jpg">
+                                    + Add to Order
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <h2>Fresh Food</h2>
-                    <p>Prepared with quality ingredients and delivered with care.</p>
+
+                    <!-- Floating Badge Widgets -->
+                    <div class="floating-widget widget-live">
+                        <span class="widget-icon">🚴‍♂️</span>
+                        <div>
+                            <strong>Order On The Way</strong>
+                            <p>Est. Arrival: 14 mins</p>
+                        </div>
+                    </div>
+
+                    <div class="floating-widget widget-rating">
+                        <span class="widget-icon">👑</span>
+                        <div>
+                            <strong>Top Choice</strong>
+                            <p>Rated #1 Food Delivery App</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Popular Menu Showcase -->
+        <section class="menu-section" id="menu">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <span class="section-badge">EXPLORE DISHES</span>
+                    <h2>Popular Culinary Creations</h2>
+                    <p>Hand-crafted meals prepared fresh upon order by our culinary masters.</p>
+                </div>
+
+                <!-- Filter Categories -->
+                <div class="menu-tabs" id="menuTabs">
+                    <button class="tab-btn active" data-category="all">✨ All Dishes</button>
+                    <button class="tab-btn" data-category="burgers">🍔 Burgers</button>
+                    <button class="tab-btn" data-category="pizza">🍕 Artisanal Pizza</button>
+                    <button class="tab-btn" data-category="asian">🥢 Asian Bowls</button>
+                </div>
+
+                <!-- Dish Cards Grid -->
+                <div class="dish-grid" id="dishGrid">
+                    <!-- Dish 1 -->
+                    <article class="dish-card" data-category="burgers">
+                        <div class="card-badge">Bestseller</div>
+                        <div class="card-image">
+                            <img src="images/burger.jpg" alt="Classic Cheeseburger">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="category-pill">Burger</span>
+                                <span class="rating-tag">★ 4.9</span>
+                            </div>
+                            <h3>Smokey BBQ Angus Burger</h3>
+                            <p>Double Angus beef, smoked cheddar, crispy bacon, house glaze.</p>
+                            <div class="card-footer">
+                                <span class="price">$14.99</span>
+                                <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="1" data-name="Smokey BBQ Angus Burger" data-price="14.99" data-img="images/burger.jpg">
+                                    + Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Dish 2 -->
+                    <article class="dish-card" data-category="pizza">
+                        <div class="card-badge hot-badge">Hot & Crispy</div>
+                        <div class="card-image">
+                            <img src="images/pizza.jpg" alt="Artisanal Pepperoni Pizza">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="category-pill">Pizza</span>
+                                <span class="rating-tag">★ 4.8</span>
+                            </div>
+                            <h3>Woodfired Pepperoni Supreme</h3>
+                            <p>Fresh mozzarella, spicy Italian pepperoni, basil & hot honey drip.</p>
+                            <div class="card-footer">
+                                <span class="price">$18.50</span>
+                                <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="2" data-name="Woodfired Pepperoni Supreme" data-price="18.50" data-img="images/pizza.jpg">
+                                    + Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Dish 3 -->
+                    <article class="dish-card" data-category="asian">
+                        <div class="card-badge healthy-badge">Chef's Choice</div>
+                        <div class="card-image">
+                            <img src="images/asian_bowl.jpg" alt="Salmon Poke Bowl">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="category-pill">Asian Bowl</span>
+                                <span class="rating-tag">★ 4.95</span>
+                            </div>
+                            <h3>Truffle Salmon Poke Bowl</h3>
+                            <p>Wild Atlantic salmon, avocado, edamame, sesame sticky rice & ponzu.</p>
+                            <div class="card-footer">
+                                <span class="price">$16.75</span>
+                                <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="3" data-name="Truffle Salmon Poke Bowl" data-price="16.75" data-img="images/asian_bowl.jpg">
+                                    + Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works" id="how-it-works">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <span class="section-badge">SIMPLE STEPS</span>
+                    <h2>How QuickBite Works</h2>
+                    <p>Get fresh food delivered to your door in 3 seamless steps.</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <div class="step-icon">📱</div>
+                        <h3>Choose Your Meal</h3>
+                        <p>Browse hundred of curated dishes from top local restaurants and artisan kitchens.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <div class="step-icon">🍳</div>
+                        <h3>Freshly Prepared</h3>
+                        <p>Our master chefs prepare your food using farm-fresh, premium quality ingredients.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <div class="step-icon">🚀</div>
+                        <h3>Express Delivery</h3>
+                        <p>Track your courier in real-time as your meal arrives hot and fresh to your door.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
         <section class="features" id="features">
             <div class="container">
-                <div class="section-heading">
-                    <p>OUR FEATURES</p>
-                    <h2>Why Choose QuickBite?</h2>
+                <div class="section-heading text-center">
+                    <span class="section-badge">WHY US</span>
+                    <h2>The QuickBite Difference</h2>
+                    <p>Designed for food lovers who value quality, speed, and reliability.</p>
                 </div>
 
                 <div class="feature-grid">
                     <article class="feature-card">
-                        <div class="icon-wrapper" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                            </svg>
-                        </div>
-                        <h3>Fast Delivery</h3>
-                        <p>Get your favorite meals delivered quickly and safely to your location.</p>
+                        <div class="icon-wrapper" aria-hidden="true">⚡</div>
+                        <h3>Ultra Fast Delivery</h3>
+                        <p>Our smart dispatch routing guarantees delivery in under 25 minutes or it's free.</p>
                     </article>
 
                     <article class="feature-card">
-                        <div class="icon-wrapper" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M11 20A9 9 0 0 0 20 11V3H12A9 9 0 0 0 3 12v1a7 7 0 0 0 7 7h1z"/>
-                                <path d="M12 3v17"/>
-                            </svg>
-                        </div>
-                        <h3>Fresh Meals</h3>
-                        <p>Enjoy meals prepared using fresh and high-quality ingredients.</p>
+                        <div class="icon-wrapper" aria-hidden="true">🌱</div>
+                        <h3>Farm-Fresh Quality</h3>
+                        <p>Every dish is made with 100% fresh, locally-sourced organic ingredients daily.</p>
                     </article>
 
                     <article class="feature-card">
-                        <div class="icon-wrapper" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
-                                <line x1="1" y1="10" x2="23" y2="10"/>
-                            </svg>
-                        </div>
-                        <h3>Easy Ordering</h3>
-                        <p>A simple ordering experience designed to make food delivery effortless.</p>
+                        <div class="icon-wrapper" aria-hidden="true">🛡️</div>
+                        <h3>Temperature Sealed</h3>
+                        <p>Our thermal insulated eco-friendly packaging keeps your meals piping hot.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="about" id="about">
-            <div class="container about-container">
-                <div class="about-box" aria-hidden="true">
-                    <svg viewBox="0 0 100 100" width="100" height="100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="42" fill="#FFFFFF" stroke="var(--primary)" stroke-width="3"/>
-                        <circle cx="50" cy="50" r="32" stroke="#FFD8CC" stroke-width="2" stroke-dasharray="4 4"/>
-                        <path d="M36 32v36M32 32v12c0 2.2 1.8 4 4 4s4-1.8 4-4V32M46 32v36M46 32c0 4-4 8-8 8" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M62 32v36c5 0 9-4 9-10V32h-9z" fill="var(--primary)"/>
-                    </svg>
-                </div>
-
-                <div class="about-content">
-                    <p class="section-label">ABOUT US</p>
-                    <h2>Good Food Should Never Be Far Away</h2>
-                    <p>
-                        QuickBite connects hungry customers with great food. Our goal is to make ordering simple, convenient, and enjoyable.
-                    </p>
-                    <p>
-                        Whether you're working, studying, or relaxing at home, your favorite meal is only a few clicks away.
-                    </p>
-                </div>
-            </div>
-        </section>
-
+        <!-- Testimonials -->
         <section class="testimonials" id="testimonials">
             <div class="container">
-                <div class="section-heading">
-                    <p>TESTIMONIALS</p>
-                    <h2>What Our Customers Say</h2>
+                <div class="section-heading text-center">
+                    <span class="section-badge">HAPPY FOODIES</span>
+                    <h2>Loved By Thousands of Food Lovers</h2>
                 </div>
 
                 <div class="testimonial-grid">
                     <article class="testimonial-card">
-                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p>“The website is simple to use and the food arrived faster than expected.”</p>
-                        <h3>Rahul Sharma</h3>
+                        <div class="stars">★★★★★</div>
+                        <p>“QuickBite completely changed how I order dinner. The salmon poke bowl was restuarant quality and arrived in just 16 minutes!”</p>
+                        <div class="user-info">
+                            <div class="avatar">RS</div>
+                            <div>
+                                <h3>Rahul Sharma</h3>
+                                <span>Verified Foodie</span>
+                            </div>
+                        </div>
                     </article>
 
                     <article class="testimonial-card">
-                        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-                        <p>“QuickBite makes ordering food extremely convenient. Clean interface and great service.”</p>
-                        <h3>Priya Singh</h3>
+                        <div class="stars">★★★★★</div>
+                        <p>“Sleek, incredibly fast, and the pepperoni pizza hot honey combination is unbeatable. Best delivery app in the city hands down!”</p>
+                        <div class="user-info">
+                            <div class="avatar">PS</div>
+                            <div>
+                                <h3>Priya Singh</h3>
+                                <span>Verified Buyer</span>
+                            </div>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
+        <!-- CTA Banner -->
         <section class="cta">
-            <div class="container">
-                <h2>Hungry? Your Next Meal Is Waiting.</h2>
-                <p>Discover great food and enjoy a simple ordering experience.</p>
-                <a href="#features" class="btn btn-light">Order Now</a>
+            <div class="container cta-container">
+                <div class="cta-content">
+                    <h2>Ready To Experience The Future Of Food Delivery?</h2>
+                    <p>Order now and get <strong>$5 OFF + Free Delivery</strong> on your first QuickBite order!</p>
+                </div>
+                <a href="#menu" class="btn btn-light btn-lg">Order Your Meal Now</a>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer id="contact">
         <div class="container footer-container">
-            <div>
-                <a href="#home" class="logo footer-logo">Quick<span>Bite</span></a>
-                <p>Fresh food. Fast delivery.</p>
+            <div class="footer-brand">
+                <a href="#home" class="logo">
+                    <span class="logo-icon">⚡</span>Quick<span class="highlight">Bite</span>
+                </a>
+                <p>Delivering gourmet food experiences fast, fresh, and effortless.</p>
             </div>
 
-            <div class="footer-links" aria-label="Social and contact links">
-                <a href="#" aria-label="Instagram placeholder link">Instagram</a>
-                <a href="#" aria-label="Facebook placeholder link">Facebook</a>
-                <a href="#" aria-label="Twitter placeholder link">Twitter</a>
-                <a href="mailto:hello@quickbite.com">Email</a>
+            <div class="footer-links">
+                <div>
+                    <h4>Navigation</h4>
+                    <a href="#home">Home</a>
+                    <a href="#menu">Menu</a>
+                    <a href="#how-it-works">How It Works</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Facebook</a>
+                </div>
             </div>
         </div>
 
-        <p class="copyright">© 2026 QuickBite. All rights reserved.</p>
+        <p class="copyright">© 2026 QuickBite Inc. All rights reserved. Crafted with passion.</p>
     </footer>
 
+    <!-- Slide-over Cart Drawer -->
+    <div class="cart-drawer-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3>Your Order (<span id="cartItemCountText">0</span>)</h3>
+            <button class="close-btn" id="closeCartBtn" aria-label="Close cart">&times;</button>
+        </div>
+        <div class="cart-drawer-body" id="cartBody">
+            <div class="empty-cart-state" id="emptyCartState">
+                <span class="empty-icon">🛒</span>
+                <p>Your order is currently empty</p>
+                <a href="#menu" class="btn btn-sm btn-primary" id="exploreMenuBtn">Explore Dishes</a>
+            </div>
+            <div class="cart-items-list" id="cartItemsList"></div>
+        </div>
+        <div class="cart-drawer-footer" id="cartFooter">
+            <div class="subtotal-row">
+                <span>Subtotal</span>
+                <strong id="cartSubtotal">$0.00</strong>
+            </div>
+            <div class="subtotal-row">
+                <span>Delivery Fee</span>
+                <span class="free-delivery">FREE</span>
+            </div>
+            <div class="total-row">
+                <span>Total Amount</span>
+                <strong class="total-price" id="cartTotal">$0.00</strong>
+            </div>
+            <button class="btn btn-primary btn-block btn-lg" id="checkoutBtn">
+                Proceed To Checkout ➔
+            </button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal-overlay" id="checkoutModal">
+        <div class="checkout-card">
+            <div class="success-icon">🎉</div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for ordering with QuickBite. Your meal is being prepared by our master chefs.</p>
+            <div class="order-details-box">
+                <p><strong>Order ID:</strong> #QB-89421</p>
+                <p><strong>Estimated Delivery:</strong> 18 Minutes</p>
+            </div>
+            <button class="btn btn-primary btn-block" id="closeModalBtn">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Dynamic JavaScript Logic -->
+    <script>
+        // State
+        let cart = [];
+
+        // Elements
+        const cartToggleBtn = document.getElementById('cartToggleBtn');
+        const cartDrawer = document.getElementById('cartDrawer');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const closeCartBtn = document.getElementById('closeCartBtn');
+        const cartItemsList = document.getElementById('cartItemsList');
+        const emptyCartState = document.getElementById('emptyCartState');
+        const cartCountBadge = document.getElementById('cartCountBadge');
+        const cartItemCountText = document.getElementById('cartItemCountText');
+        const cartSubtotal = document.getElementById('cartSubtotal');
+        const cartTotal = document.getElementById('cartTotal');
+        const exploreMenuBtn = document.getElementById('exploreMenuBtn');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const checkoutModal = document.getElementById('checkoutModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const findFoodBtn = document.getElementById('findFoodBtn');
+
+        // Toggle Cart
+        function openCart() {
+            cartDrawer.classList.add('open');
+            cartOverlay.classList.add('open');
+        }
+
+        function closeCart() {
+            cartDrawer.classList.remove('open');
+            cartOverlay.classList.remove('open');
+        }
+
+        cartToggleBtn.addEventListener('click', openCart);
+        closeCartBtn.addEventListener('click', closeCart);
+        cartOverlay.addEventListener('click', closeCart);
+        if (exploreMenuBtn) exploreMenuBtn.addEventListener('click', closeCart);
+
+        // Add To Cart
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = btn.getAttribute('data-id');
+                const name = btn.getAttribute('data-name');
+                const price = parseFloat(btn.getAttribute('data-price'));
+                const img = btn.getAttribute('data-img');
+
+                const existingItem = cart.find(item => item.id === id);
+                if (existingItem) {
+                    existingItem.qty += 1;
+                } else {
+                    cart.push({ id, name, price, img, qty: 1 });
+                }
+
+                updateCartUI();
+                openCart();
+
+                // Button pulse feedback
+                btn.innerText = '✓ Added!';
+                setTimeout(() => {
+                    btn.innerText = '+ Add to Cart';
+                }, 1200);
+            });
+        });
+
+        // Update Cart UI
+        function updateCartUI() {
+            const totalCount = cart.reduce((acc, item) => acc + item.qty, 0);
+            cartCountBadge.innerText = totalCount;
+            cartItemCountText.innerText = totalCount;
+
+            if (cart.length === 0) {
+                emptyCartState.style.display = 'flex';
+                cartItemsList.innerHTML = '';
+            } else {
+                emptyCartState.style.display = 'none';
+                cartItemsList.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <span class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</span>
+                            <div class="qty-controls">
+                                <button onclick="changeQty('${item.id}', -1)">-</button>
+                                <span>${item.qty}</span>
+                                <button onclick="changeQty('${item.id}', 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            const total = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            cartSubtotal.innerText = `$${total.toFixed(2)}`;
+            cartTotal.innerText = `$${total.toFixed(2)}`;
+        }
+
+        window.changeQty = function(id, delta) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.id !== id);
+                }
+                updateCartUI();
+            }
+        };
+
+        // Category Tab Filter
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const dishCards = document.querySelectorAll('.dish-card');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const cat = btn.getAttribute('data-category');
+                dishCards.forEach(card => {
+                    if (cat === 'all' || card.getAttribute('data-category') === cat) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeInUp 0.4s ease forwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Checkout
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) return;
+            closeCart();
+            checkoutModal.classList.add('open');
+            cart = [];
+            updateCartUI();
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            checkoutModal.classList.remove('open');
+        });
+
+        if (findFoodBtn) {
+            findFoodBtn.addEventListener('click', () => {
+                document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+    </script>
 </body>
 </html>
-
